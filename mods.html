@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .download-button {
+        background-color: red;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .download-button.clicked {
+        background-color: green;
+    }
+</style>
+</head>
+<body>
+    <h2>Click to download the mods</h2>
+    <a id="downloadBtn" class="download-button" href="C:\Users\swiat\Desktop\mods.zip" download>Download</a>
+
+    <p><strong>What you need to have:</strong></p>
+    <ul>
+        <li>Version 1.19</li>
+        <li>Mic</li>
+        <li>Laptop or PC</li>
+        <li>Launcher for Minecraft</li>
+	<li>mods in the mods folder in the 1.19 version folder</li>
+    </ul>
+
+    <script>
+        var button = document.getElementById("downloadBtn");
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            button.classList.add("clicked");
+            button.disabled = true;
+            window.open(button.href, "_blank");
+        });
+    </script>
+</body>
+</html>
