@@ -13,22 +13,11 @@
     z-index: 2;
   }
 
+  /* Button style when clicked */
   .download-button.clicked {
     background-color: green;
   }
-
-  .info-list {
-    list-style-type: none;
-    padding: 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .info-list li {
-    margin-bottom: 10px;
-  }
-
-  .info-list li:first-child {
+  .larger-text {
     font-size: 18px;
     font-weight: bold;
   }
@@ -36,12 +25,13 @@
 </head>
 <body>
 
-<a id="download-link" href="mods.zip" download>
+  <a id="download-link" href="mods.zip" download>
   <button id="download-button" class="download-button">Download</button>
 </a>
 
+<div class="larger-text">What you need:</div>
+
 <ul>
-  <li>What you need:</li>
   <li>Version 1.20.1</li>
   <li>Mic</li>
   <li>Laptop or PC</li>
@@ -58,7 +48,7 @@ downloadButton.addEventListener('click', function() {
   downloadButton.classList.add('clicked');
 });
 
-downloadButton.addEventListener('transitionend', function(event) {
+  downloadButton.addEventListener('transitionend', function(event) {
   if (event.propertyName === 'background-color') {
     downloadButton.classList.remove('clicked');
   }
