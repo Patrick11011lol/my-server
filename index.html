@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<!-- List of information -->
+
 <ul class="info-list">
   <li class="info-list-item">Version 1.20.1</li>
   <li class="info-list-item">Mic</li>
@@ -41,8 +41,8 @@
   <li class="info-list-item">Have fun!</li>
 </ul>
 
-<!-- Replace 'your-file-url' with the actual URL of the file you want to download -->
-<a id="download-link" href="your-file-url" download>
+
+<a id="download-link" href="mods.zip" download>
   <button id="download-button" class="download-button">Download File</button>
 </a>
 
@@ -53,7 +53,6 @@ downloadButton.addEventListener('click', function() {
   downloadButton.classList.add('clicked');
 });
 
-// Optionally, you can also listen for the 'transitionend' event to remove the 'clicked' class after the transition ends
 downloadButton.addEventListener('transitionend', function(event) {
   if (event.propertyName === 'background-color') {
     downloadButton.classList.remove('clicked');
