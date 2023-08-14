@@ -2,43 +2,64 @@
 <html>
 <head>
 <style>
-    .download-button {
-        background-color: red;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-    }
+  /* Default button style */
+  .download-button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-    .download-button.clicked {
-        background-color: green;
-    }
+  /* Button style when clicked */
+  .download-button.clicked {
+    background-color: green;
+  }
+
+  /* List style */
+  .info-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .info-list-item {
+    margin-bottom: 10px;
+  }
 </style>
 </head>
 <body>
-    <h2>Click to download the mods</h2>
-    <a id="downloadBtn" class="download-button" href="Mods.zip" download>Download</a>
 
-    <p><strong>What you need to have:</strong></p>
-    <ul>
-<li>Version 1.20.1</li>
-<li>Mic</li>
-<li>Laptop or PC</li>
-<li>Launcher for Minecraft</li>
-<li>IP:MCSMP101.aternos.me </li>
-<li>if don't have the mods you can't join the server</li>
-<li>Have fun!</li>
-    </ul>
+<!-- List of information -->
+<ul class="info-list">
+  <li class="info-list-item">Version 1.20.1</li>
+  <li class="info-list-item">Mic</li>
+  <li class="info-list-item">Laptop or PC</li>
+  <li class="info-list-item">Launcher for Minecraft</li>
+  <li class="info-list-item">IP: MCSMP101.aternos.me</li>
+  <li class="info-list-item">If you don't have the mods, you can't join the server</li>
+  <li class="info-list-item">Have fun!</li>
+</ul>
 
-    <script>
-        var button = document.getElementById("downloadBtn");
-        button.addEventListener("click", function(event) {
-            event.preventDefault();
-            button.classList.add("clicked");
-            button.disabled = true;
-            window.open(button.href, "_blank");
-        });
-    </script>
+<!-- Replace 'your-file-url' with the actual URL of the file you want to download -->
+<a id="download-link" href="your-file-url" download>
+  <button id="download-button" class="download-button">Download File</button>
+</a>
+
+<script>
+const downloadButton = document.getElementById('download-button');
+
+downloadButton.addEventListener('click', function() {
+  downloadButton.classList.add('clicked');
+});
+
+// Optionally, you can also listen for the 'transitionend' event to remove the 'clicked' class after the transition ends
+downloadButton.addEventListener('transitionend', function(event) {
+  if (event.propertyName === 'background-color') {
+    downloadButton.classList.remove('clicked');
+  }
+});
+</script>
+
 </body>
 </html>
