@@ -2,7 +2,6 @@
 <html>
 <head>
 <style>
-  /* Default button style */
   .download-button {
     padding: 10px 20px;
     background-color: red;
@@ -10,28 +9,38 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    position: relative;
+    z-index: 2;
   }
 
-  /* Button style when clicked */
   .download-button.clicked {
     background-color: green;
   }
 
-  /* List style */
   .info-list {
     list-style-type: none;
     padding: 0;
+    position: relative;
+    z-index: 1;
   }
 
-  .info-list-item {
+  .info-list li {
     margin-bottom: 10px;
+  }
+
+  .info-list li:first-child {
+    font-size: 18px;
+    font-weight: bold;
   }
 </style>
 </head>
 <body>
 
+<a id="download-link" href="mods.zip" download>
+  <button id="download-button" class="download-button">Download</button>
+</a>
 
-<ul>
+<ul class="info-list">
   <li>What you need:</li>
   <li>Version 1.20.1</li>
   <li>Mic</li>
@@ -41,14 +50,6 @@
   <li>If you don't have the mods, you can't join the server</li>
   <li>Have fun!</li>
 </ul>
-
-
-
-
-  
-<a id="download-link" href="mods.zip" download>
-  <button id="download-button" class="download-button">Download File</button>
-</a>
 
 <script>
 const downloadButton = document.getElementById('download-button');
@@ -62,8 +63,6 @@ downloadButton.addEventListener('transitionend', function(event) {
     downloadButton.classList.remove('clicked');
   }
 });
-
-  
 </script>
 
 </body>
